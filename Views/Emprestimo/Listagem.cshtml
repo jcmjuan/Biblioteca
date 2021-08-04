@@ -40,6 +40,15 @@
             <tbody>
                 @foreach (Emprestimo e in Model)
                 {
+                    @if ((System.DateTime.Compare(System.DateTime.Now, e.DataDevolucao) > 0))
+                    {
+                        Classe = "text-danger";
+                    }
+                    else
+                    {
+                        Classe = "";
+                    }
+
                     <tr class="@Classe">
                         <td>@e.Id</td>
                         <td>@e.NomeUsuario</td>
@@ -59,4 +68,3 @@
         }
     </div>
 </div>
-
